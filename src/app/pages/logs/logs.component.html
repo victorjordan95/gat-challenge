@@ -1,0 +1,66 @@
+<app-layout></app-layout>
+<section class="content">
+
+    <header class="content__title">
+        <h1>Issues - Possíveis vulnerabilidades</h1>
+    </header>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="data-table__header">
+                <div class="form-group data-table__filter">
+                    <input autocomplete="false" placeholder="Filtrar por todas as colunas" [(ngModel)]="filter"
+                        class="form-control">
+                    <i class="form-group__bar"></i>
+                </div>
+            </div>
+            <div class="table-responsive" >
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th *ngFor="let header of table_headers" (click)="sort(header)" class="pointer">
+                                {{header}}
+                                <i class="zmdi" *ngIf="key == header" [ngClass]="{'zmdi-chevron-up':reverse,'zmdi-chevron-down':!reverse}"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let issue of json | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: currentPage } | filter: filter; let i=index">
+                            <td>
+                                <div dropdown>
+                                    <i dropdownToggle class="actions__item zmdi zmdi-more-vert"></i>
+                                    <div *dropdownMenu class="dropdown-menu dropdown-menu-left">
+                                        <span class="dropdown-item" (click)="showModal(tecnico)">Visualizar</span>
+                                        <span class="dropdown-item" (click)="delete(tecnico)">Excluir</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{issue['ID']}}</td>
+                            <td>{{issue['Name']}}</td>
+                            <td>{{issue['Description']}}</td>
+                            <td>{{issue['Asset']}}</td>
+                            <td>{{issue['Status']}}</td>
+                            <td>{{issue['Severity (Asset risk)']}}</td>
+                            <td>{{issue['Responsible']}}</td>
+                            <td>{{issue['Port']}}</td>
+                            <td>{{issue['Protocol']}}</td>
+                            <td>{{issue['Service name']}}</td>
+                            <td>{{issue['Source']}}</td>
+                            <td>{{issue['Changed date']}}</td>
+                            <td>{{issue['Last seen date']}}</td>
+                            <td>{{issue['Due date']}}</td>
+                            <td>{{issue['Tags']}}</td>
+                            <td>{{issue['KB']}}</td>
+                            <td>{{issue['Recommendations']}}</td>
+                            <td>{{issue['Root cause']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Próximo">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+
+</section>
