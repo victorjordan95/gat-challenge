@@ -1,5 +1,6 @@
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserModule } from '@angular/platform-browser';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CalculosComponent } from './pages/calculos/calculos.component';
 import { LogsComponent } from './pages/logs/logs.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LogViewModalComponent } from './pages/logs/log-view-modal/log-view-modal.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -35,7 +37,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LoginComponent,
     CalculosComponent,
     LogsComponent,
-    DashboardComponent
+    DashboardComponent,
+    LogViewModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppRoutingModule,
     FormsModule,
     BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
     PerfectScrollbarModule,
     NgSelectModule,
     FormsModule,

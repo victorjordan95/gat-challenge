@@ -1,0 +1,10 @@
+.modal-body-tags {
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: flex-end;
+    margin-bottom: 16px;
+
+    > .badge {
+        margin-left: 8px;
+    }
+}

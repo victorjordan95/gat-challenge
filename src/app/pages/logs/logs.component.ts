@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import gatJson from '../gat'
+import { LogViewModalComponent } from './log-view-modal/log-view-modal.component';
+import Issue from '../../shared/types/Issue';
 
 @Component({
     selector: 'app-logs',
@@ -8,11 +10,13 @@ import gatJson from '../gat'
 })
 export class LogsComponent implements OnInit {
 
+    @ViewChild(LogViewModalComponent) modalComponent: LogViewModalComponent;
+
     public json;
     public table_headers = [
-        'ID', 'Name', 'Description', 'Asset', 'Status', 'Severity (Asset risk)', 'Responsible', 'Port',
+        'ID', 'Name', 'Asset', 'Status', 'Severity (Asset risk)', 'Responsible', 'Port',
         'Protocol', 'Service name', 'Source',
-        'Changed date', 'Last seen date', 'Due date', 'Tags', 'KB', 'Recommendations', 'Root cause'
+        'Changed date', 'Last seen date', 'Due date'
     ];
 
     public key = 'nome';
@@ -24,6 +28,10 @@ export class LogsComponent implements OnInit {
 
     ngOnInit() {
         this.json = gatJson;
+    }
+
+    public showModal(issue: Issue): void {
+        this.modalComponent.showModal(issue);
     }
 
     public sort(key: string): void {

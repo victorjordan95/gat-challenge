@@ -1,4 +1,6 @@
 <app-layout></app-layout>
+<app-log-view-modal></app-log-view-modal>
+
 <section class="content">
 
     <header class="content__title">
@@ -31,29 +33,28 @@
                                 <div dropdown>
                                     <i dropdownToggle class="actions__item zmdi zmdi-more-vert"></i>
                                     <div *dropdownMenu class="dropdown-menu dropdown-menu-left">
-                                        <span class="dropdown-item" (click)="showModal(tecnico)">Visualizar</span>
-                                        <span class="dropdown-item" (click)="delete(tecnico)">Excluir</span>
+                                        <span class="dropdown-item" (click)="showModal(issue)">Visualizar</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>{{issue['ID']}}</td>
-                            <td>{{issue['Name']}}</td>
-                            <td>{{issue['Description']}}</td>
-                            <td>{{issue['Asset']}}</td>
-                            <td>{{issue['Status']}}</td>
-                            <td>{{issue['Severity (Asset risk)']}}</td>
-                            <td>{{issue['Responsible']}}</td>
-                            <td>{{issue['Port']}}</td>
-                            <td>{{issue['Protocol']}}</td>
-                            <td>{{issue['Service name']}}</td>
-                            <td>{{issue['Source']}}</td>
-                            <td>{{issue['Changed date']}}</td>
-                            <td>{{issue['Last seen date']}}</td>
-                            <td>{{issue['Due date']}}</td>
-                            <td>{{issue['Tags']}}</td>
-                            <td>{{issue['KB']}}</td>
-                            <td>{{issue['Recommendations']}}</td>
-                            <td>{{issue['Root cause']}}</td>
+                            <td>{{issue.ID}}</td>
+                            <td>{{issue.Name}}</td>
+                            <!-- <td>{{issue.Description}}</td> -->
+                            <td>{{issue.Asset}}</td>
+                            <td>{{issue.Status}}</td>
+                            <td>{{issue.Severity}}</td>
+                            <td>{{issue.Responsible}}</td>
+                            <td>{{issue.Port}}</td>
+                            <td>{{issue.Protocol}}</td>
+                            <td>{{issue.ServiceName}}</td>
+                            <td>{{issue.Source}}</td>
+                            <td>{{issue.ChangedDate}}</td>
+                            <td>{{issue.LastSeenDate}}</td>
+                            <td>{{issue.DueDate}}</td>
+                            <!-- <td>{{issue.Tags}}</td> -->
+                            <!-- <td>{{issue.KB}}</td> -->
+                            <!-- <td>{{issue.Recommendations}}</td> -->
+                            <!-- <td>{{issue.RootCause}}</td> -->
                         </tr>
                     </tbody>
                 </table>

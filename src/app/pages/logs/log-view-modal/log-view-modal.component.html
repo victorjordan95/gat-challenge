@@ -1,0 +1,40 @@
+<div class="modal fade" bsModal #createModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-static-name">
+    
+    <div class="modal-dialog modal-lg">
+        
+        <div class="modal-content" *ngIf="issue">
+            <div class="modal-header">
+                <h4 class="modal-title">Visualização - Issue {{issue.Name}}</h4>
+                <button type="button" class="close" (click)="createModal.hide()">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body-tags">
+                    <em>Tags:</em>
+                    <span class="badge badge-primary" *ngFor="let tag of tags">{{tag}}</span>
+                </div>
+
+                <p>
+                    <b>Description</b>:
+                    {{issue.Description}}
+                </p>
+                <hr>
+                <p>
+                    <b>Recommendation</b>:
+                    {{issue.Recommendation ? issue.Recommendation : 'No Recommendation'}}
+                </p>
+                <p>
+                    <b>KB:</b> 
+                    {{issue.KB}}
+                </p>
+                <p>
+                    <b>Root Cause:</b> 
+                    {{issue.KB}}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
