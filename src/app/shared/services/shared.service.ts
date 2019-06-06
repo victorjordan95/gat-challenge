@@ -9,7 +9,7 @@ export class SharedService {
     maThemeSubject: Subject<string> = new Subject<string>();
 
     // Sidebar visibility
-    public sidebarVisible;
+    public sidebarVisible: boolean;
     sidebarVisibilitySubject: Subject<boolean> = new Subject<boolean>()
 
     constructor() {

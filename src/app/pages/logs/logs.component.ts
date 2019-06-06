@@ -47,15 +47,55 @@ export class LogsComponent implements OnInit {
         this.getLogs();
     }
 
+    /**
+     * Show modal with the clicked issue content
+     * @param issue Issue - The clicked issue by user
+     */
     public showModal(issue: Issue): void {
         this.modalComponent.showModal(issue);
     }
 
+    /**
+     * Order the column by the clicked
+     * column in HTML table.
+     * Orders it by ASC or DESC
+     * @param key String - Clicked header in HTML
+     */
     public sort(key: string): void {
         this.key = key;
         this.reverse = !this.reverse;
     }
 
+    /**
+     * Search in the log array the
+     * input value. If it's empty,
+     * returns all logs.
+     */
+    public searchFilter(): void {
+        this.logs = [];
+        if (this.filterText === '') {
+            this.resetLogs();
+            return;
+        }
+        this.originalLogs.forEach((log: Issue) => {
+            if (log[this.selectedFilter].toLowerCase().includes(this.filterText.toLowerCase())) {
+                this.logs = [...this.logs, log];
+            }
+        });
+    }
+
+    /**
+     * Clean any filter and
+     * return to the original state.
+     */
+    public resetLogs(): void {
+        this.logs = [];
+        this.logs = [...this.originalLogs];
+    }
+
+    /**
+     * Fetch from server the logs
+     */
     private getLogs(): void {
         this.isLoading = true;
         this.subscription = this.apiService.getLogs().subscribe(
@@ -69,24 +109,6 @@ export class LogsComponent implements OnInit {
                 this.isLoading = false;
             }
         );
-    }
-
-    public searchFilter(): void {
-        this.logs = [];
-        if (this.filterText === '') {
-            this.resetLogs();
-            return;
-        }
-        this.originalLogs.forEach(log => {
-            if (log[this.selectedFilter].toLowerCase().includes(this.filterText.toLowerCase())) {
-                this.logs = [...this.logs, log];
-            }
-        });
-    }
-
-    public resetLogs(): void {
-        this.logs = [];
-        this.logs = [...this.originalLogs];
     }
 
 }

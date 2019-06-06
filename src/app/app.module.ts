@@ -18,7 +18,6 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavigationTriggerComponent } from './layout/header/navigation-trigger/navigation-trigger.component';
-import { LoginComponent } from './pages/login/login.component';
 import { LogsComponent } from './pages/logs/logs.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LogViewModalComponent } from './pages/logs/log-view-modal/log-view-modal.component';
@@ -33,7 +32,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LayoutComponent,
     HeaderComponent,
     NavigationTriggerComponent,
-    LoginComponent,
     LogsComponent,
     DashboardComponent,
     LogViewModalComponent
