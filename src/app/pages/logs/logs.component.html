@@ -42,11 +42,15 @@
                             <!-- <td>{{issue.Description}}</td> -->
                             <td>{{issue.Asset}}</td>
                             <td>{{issue.Status}}</td>
-                            <td>{{issue.Severity}}</td>
+                            <td class="text-center">
+                                <span class="badge" [ngClass]="issue.Severity">
+                                    {{issue.Severity}}
+                                </span>
+                            </td>
                             <td>{{issue.Responsible}}</td>
                             <td>{{issue.Port}}</td>
                             <td>{{issue.Protocol}}</td>
-                            <td>{{issue.ServiceName}}</td>
+                            <!-- <td>{{issue.ServiceName}}</td> -->
                             <td>{{issue.Source}}</td>
                             <td>{{issue.ChangedDate}}</td>
                             <td>{{issue.LastSeenDate}}</td>
