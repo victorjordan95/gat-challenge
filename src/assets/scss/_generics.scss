@@ -41,3 +41,23 @@ $colors-list: (
   margin-top: 24px;
   text-align: center;
 }
+
+.badge {
+
+  &.INFORMATIVE {
+      color: #fff;
+      background-color: #ffc107;
+  }
+  &.LOW {
+      color: #fff;
+      background-color: #00bcd4;
+  }
+  &.CRITICAL {
+      color: #fff;
+      background-color: #f44336;
+  }
+  &.HIGH {
+      color: #fff;
+      background-color: #ff9800;
+  }
+}
