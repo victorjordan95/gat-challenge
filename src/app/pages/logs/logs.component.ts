@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import gatJson from '../gat'
 import { LogViewModalComponent } from './log-view-modal/log-view-modal.component';
 import Issue from '../../shared/types/Issue';
 import { Subscription } from 'rxjs';
@@ -19,16 +18,27 @@ export class LogsComponent implements OnInit {
     public isLoading: boolean;
 
     public logs: Issue[];
+    public originalLogs: Issue[];
 
     public key = 'Name';
     public reverse = false;
     public currentPage = 1;
-    public filter = '';
+    public filterText = '';
+    public selectedFilter: string;
 
     public table_headers = [
-        'ID', 'Name', 'Asset', 'Status', 'Severity (Asset risk)', 'Responsible', 'Port',
-        'Protocol', 'Source',
-        'Changed date', 'Last seen date', 'Due date'
+        { 'label': 'ID', 'id': 'ID' },
+        { 'label': 'Name', 'id': 'Name' },
+        { 'label': 'Asset', 'id': 'Asset' },
+        { 'label': 'Status', 'id': 'Status' },
+        { 'label': 'Severity (Asset risk)', 'id': 'Severity' },
+        { 'label': 'Responsible', 'id': 'Responsible' },
+        { 'label': 'Port', 'id': 'Port' },
+        { 'label': 'Protocol', 'id': 'Protocol' },
+        { 'label': 'Source', 'id': 'Source' },
+        { 'label': 'Changed date', 'id': 'ChangedDate' },
+        { 'label': 'Last seen date', 'id': 'LastSeenDate' },
+        { 'label': 'Due date', 'id': 'DueDate' }
     ];
 
     constructor(private apiService: ApiService) { }
@@ -50,6 +60,7 @@ export class LogsComponent implements OnInit {
         this.isLoading = true;
         this.subscription = this.apiService.getLogs().subscribe(
             (logs: Issue[]) => {
+                this.originalLogs = logs;
                 this.logs = logs;
                 this.isLoading = false;
             },
@@ -58,6 +69,24 @@ export class LogsComponent implements OnInit {
                 this.isLoading = false;
             }
         );
+    }
+
+    public searchFilter(): void {
+        this.logs = [];
+        if (this.filterText === '') {
+            this.resetLogs();
+            return;
+        }
+        this.originalLogs.forEach(log => {
+            if (log[this.selectedFilter].toLowerCase().includes(this.filterText.toLowerCase())) {
+                this.logs = [...this.logs, log];
+            }
+        });
+    }
+
+    public resetLogs(): void {
+        this.logs = [];
+        this.logs = [...this.originalLogs];
     }
 
 }

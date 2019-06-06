@@ -10,25 +10,38 @@
     <div class="card">
         <div class="card-body">
             <div class="data-table__header">
+                <span class="data-table-label">Select an column to filter</span>
+                <ng-select 
+                    [items]="table_headers"
+                    [(ngModel)]="selectedFilter"
+                    (clear)="resetLogs()"
+                    bindLabel="label"
+                    bindValue="id"
+                    class="search_headers"
+                    placeholder="Filter by a column"
+                    >
+                </ng-select>
                 <div class="form-group data-table__filter">
-                    <input autocomplete="false" placeholder="Filter across all columns" [(ngModel)]="filter"
-                        class="form-control">
-                    <i class="form-group__bar"></i>
+                    <input autocomplete="false" placeholder="Filter across all columns" [(ngModel)]="filterText" class="form-control">
                 </div>
+                <button class="btn btn-default btn-search-filter" (click)="searchFilter()">
+                    <i class="zmdi zmdi-search"></i>
+                    Search
+                </button>
             </div>
             <div class="table-responsive" *ngIf="!isLoading">
                 <table class="table table-striped mb-0">
                     <thead>
                         <tr>
                             <th>Action</th>
-                            <th *ngFor="let header of table_headers" (click)="sort(header)" class="pointer">
-                                {{header}}
-                                <i class="zmdi" *ngIf="key == header" [ngClass]="{'zmdi-chevron-up':reverse,'zmdi-chevron-down':!reverse}"></i>
+                            <th *ngFor="let header of table_headers" (click)="sort(header.label)" class="pointer">
+                                {{header.label}}
+                                <i class="zmdi" *ngIf="key == header.label" [ngClass]="{'zmdi-chevron-up':reverse,'zmdi-chevron-down':!reverse}"></i>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let issue of logs | orderBy: key : reverse : true | filter: filter | paginate: { itemsPerPage: 5, currentPage: currentPage }; let i=index">
+                        <tr *ngFor="let issue of logs | orderBy: key : reverse : true | paginate: { itemsPerPage: 5, currentPage: currentPage }; let i=index">
                             <td>
                                 <div dropdown>
                                     <i dropdownToggle class="actions__item zmdi zmdi-more-vert"></i>

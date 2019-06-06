@@ -1,0 +1,46 @@
+.data-table__header {
+    align-items: baseline;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    .data-table-label {
+        width: 100%;
+    }
+
+    .search_headers {
+        top: 5px;
+        width: 15%;
+
+    }
+
+    .data-table__filter {
+        width: 50%;
+
+        >input {
+            border-radius: 0;
+            border: 1px solid #cccccc;
+            height: 36px;
+            left: -1px;
+            position: relative;
+            top: 5px;
+
+        }
+    }
+
+    .btn-search-filter {
+        height: 36px;
+        left: -1px;
+        position: relative;
+        top: 5px;
+        width: 15%;
+    }
+}
+
+.ng-select .ng-select-container {
+    background: #424242;
+    border-radius: 0;
+    color: white;
+    position: relative;
+    top: 5px;
+}

@@ -76,17 +76,10 @@
     padding-left: 2rem;
   }
 
-  &:before {
-    content: '\f1c3';
-    font-family: $font-family-icon;
-    font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    bottom: 0.263rem;
-  }
 }
 
 .data-table__footer {
   text-align: center;
   padding: $card-spacer-y 0;
 }
+
