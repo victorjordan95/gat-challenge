@@ -17,7 +17,7 @@ const gatJson = [
         "Tags": "HTTP",
         "KB": "HTTP Methods Allowed (per directory)",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -38,7 +38,7 @@ const gatJson = [
         "Tags": "SSL",
         "KB": "SSL Certificate Information",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -59,7 +59,7 @@ const gatJson = [
         "Tags": "SYN; NESSUS",
         "KB": "Nessus SYN scanner",
         "Recommendations": "\\nProtect your target with an IP filter.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -80,7 +80,7 @@ const gatJson = [
         "Tags": "RPC",
         "KB": "RPC Services Enumeration",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -101,7 +101,7 @@ const gatJson = [
         "Tags": "SSH; Protocol",
         "KB": "SSH Protocol Versions Supported",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -122,7 +122,7 @@ const gatJson = [
         "Tags": "SYN; NESSUS",
         "KB": "Nessus SYN scanner",
         "Recommendations": "\\nProtect your target with an IP filter.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -143,7 +143,7 @@ const gatJson = [
         "Tags": "SNMP",
         "KB": "Nessus SNMP Scanner",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -164,7 +164,7 @@ const gatJson = [
         "Tags": "Microsoft",
         "KB": "Microsoft Windows SMB Registry : Nessus Cannot Access the Windows Registry",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -185,7 +185,7 @@ const gatJson = [
         "Tags": "SSL",
         "KB": "SSL Certificate Cannot Be Trusted",
         "Recommendations": "\\nPurchase or generate a proper certificate for this service.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -206,7 +206,7 @@ const gatJson = [
         "Tags": "SSL",
         "KB": "SSL Certificate Cannot Be Trusted",
         "Recommendations": "\\nPurchase or generate a proper certificate for this service.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -227,7 +227,7 @@ const gatJson = [
         "Tags": "SYN; NESSUS",
         "KB": "Nessus SYN scanner",
         "Recommendations": "\\nProtect your target with an IP filter.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -248,7 +248,7 @@ const gatJson = [
         "Tags": "Microsoft; SMB",
         "KB": "Microsoft Windows SMB Service Detection",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -269,7 +269,7 @@ const gatJson = [
         "Tags": "SYN; NESSUS",
         "KB": "Nessus SYN scanner",
         "Recommendations": "\\nProtect your target with an IP filter.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -290,7 +290,7 @@ const gatJson = [
         "Tags": "SSL",
         "KB": "SSL Certificate Information",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -311,7 +311,7 @@ const gatJson = [
         "Tags": "Service",
         "KB": "Service Detection",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -332,7 +332,7 @@ const gatJson = [
         "Tags": "SYN; NESSUS",
         "KB": "Nessus SYN scanner",
         "Recommendations": "\\nProtect your target with an IP filter.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -353,7 +353,7 @@ const gatJson = [
         "Tags": "SSL",
         "KB": "SSL Certificate Cannot Be Trusted",
         "Recommendations": "\\nPurchase or generate a proper certificate for this service.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -374,7 +374,7 @@ const gatJson = [
         "Tags": "SSL",
         "KB": "SSL Certificate Information",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -395,7 +395,7 @@ const gatJson = [
         "Tags": "HTTP",
         "KB": "HTTP Methods Allowed (per directory)",
         "Recommendations": "",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     },
     {
@@ -416,7 +416,7 @@ const gatJson = [
         "Tags": "SYN; NESSUS",
         "KB": "Nessus SYN scanner",
         "Recommendations": "\\nProtect your target with an IP filter.\\n",
-        "RootCause": "Generic  ",
+        "RootCause": "Generic  "
         
     }
 ];

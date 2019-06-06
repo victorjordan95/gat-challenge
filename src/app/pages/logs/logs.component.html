@@ -4,19 +4,19 @@
 <section class="content">
 
     <header class="content__title">
-        <h1>Issues - Possíveis vulnerabilidades</h1>
+        <h1>Issues - Possible vulnerabilities</h1>
     </header>
 
     <div class="card">
         <div class="card-body">
             <div class="data-table__header">
                 <div class="form-group data-table__filter">
-                    <input autocomplete="false" placeholder="Filtrar por todas as colunas" [(ngModel)]="filter"
+                    <input autocomplete="false" placeholder="Filter across all columns" [(ngModel)]="filter"
                         class="form-control">
                     <i class="form-group__bar"></i>
                 </div>
             </div>
-            <div class="table-responsive" >
+            <div class="table-responsive" *ngIf="!isLoading">
                 <table class="table table-striped mb-0">
                     <thead>
                         <tr>
@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let issue of json | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: currentPage } | filter: filter; let i=index">
+                        <tr *ngFor="let issue of logs | orderBy: key : reverse : true | filter: filter | paginate: { itemsPerPage: 5, currentPage: currentPage }; let i=index">
                             <td>
                                 <div dropdown>
                                     <i dropdownToggle class="actions__item zmdi zmdi-more-vert"></i>
@@ -62,8 +62,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Próximo">
-                </pagination-controls>
+                <pagination-controls (pageChange)="currentPage = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
             </div>
         </div>
     </div>

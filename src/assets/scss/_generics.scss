@@ -1,63 +1,74 @@
 // Generate background color and color classes
-$colors-list: (
-        'red' $red,
-        'pink' $pink,
-        'purple' $purple,
-        'deep-purple' $deep-purple,
-        'indigo' $indigo,
-        'blue' $blue,
-        'light-blue' $light-blue,
-        'cyan' $cyan,
-        'teal' $teal,
-        'green' $green,
-        'light-green' $light-green,
-        'lime' $lime,
-        'yellow' $yellow,
-        'amber' $amber,
-        'orange' $orange,
-        'deep-orange' $deep-orange,
-        'brown' $brown,
-        'grey' $grey,
-        'blue-grey' $blue-grey,
-        'black' $black,
-        'white' $white);
+$colors-list: ('red'$red,
+    'pink'$pink,
+    'purple'$purple,
+    'deep-purple'$deep-purple,
+    'indigo'$indigo,
+    'blue'$blue,
+    'light-blue'$light-blue,
+    'cyan'$cyan,
+    'teal'$teal,
+    'green'$green,
+    'light-green'$light-green,
+    'lime'$lime,
+    'yellow'$yellow,
+    'amber'$amber,
+    'orange'$orange,
+    'deep-orange'$deep-orange,
+    'brown'$brown,
+    'grey'$grey,
+    'blue-grey'$blue-grey,
+    'black'$black,
+    'white'$white);
 
 @each $current-color in $colors-list {
-  .bg-#{nth($current-color, 1)} {
-    background-color: #{nth($current-color, 2)} !important;
-  }
+    .bg-#{nth($current-color, 1)} {
+        background-color: #{nth($current-color, 2)} !important;
+    }
 
-  .color-#{nth($current-color, 1)} {
-    color: #{nth($current-color, 2)} !important;
-  }
+    .color-#{nth($current-color, 1)} {
+        color: #{nth($current-color, 2)} !important;
+    }
 }
 
 // Overflow
-.o-hidden { overflow: hidden; }
-.o-visible { overflow: visible; }
-.o-auto { overflow: auto; }
+.o-hidden {
+    overflow: hidden;
+}
+
+.o-visible {
+    overflow: visible;
+}
+
+.o-auto {
+    overflow: auto;
+}
 
 .ngx-pagination {
-  margin-top: 24px;
-  text-align: center;
+    margin-top: 24px;
+    text-align: center;
 }
 
 .badge {
+    color: #fff;
 
-  &.INFORMATIVE {
-      color: #fff;
-      background-color: #ffc107;
-  }
-  &.LOW {
-      color: #fff;
-      background-color: #00bcd4;
-  }
-  &.CRITICAL {
-      color: #fff;
-      background-color: #f44336;
-  }
-  &.HIGH {
-      color: #fff;
-      background-color: #ff9800;
-  }
+    &.INFORMATIVE {
+        background-color: #ffc107;
+    }
+
+    &.LOW {
+        background-color: #00bcd4;
+    }
+
+    &.MEDIUM {
+        background-color: #3F51B5;
+    }
+
+    &.CRITICAL {
+        background-color: #f44336;
+    }
+
+    &.HIGH {
+        background-color: #ff9800;
+    }
 }
