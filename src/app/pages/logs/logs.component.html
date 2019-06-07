@@ -1,4 +1,5 @@
 <app-layout></app-layout>
+<app-loader *ngIf="isLoading"></app-loader>
 <app-log-view-modal></app-log-view-modal>
 
 <section class="content">
@@ -10,7 +11,7 @@
     <div class="card">
         <div class="card-body">
             <div class="data-table__header">
-                <span class="data-table-label">Select an column to filter</span>
+                <span class="data-table-label">Filter</span>
                 <ng-select 
                     [items]="table_headers"
                     [(ngModel)]="selectedFilter"
@@ -22,14 +23,11 @@
                     placeholder="Filter by a column"
                     >
                 </ng-select>
+                
                 <div class="form-group data-table__filter" *ngIf="!isDate">
                     <input autocomplete="false" placeholder="Type your consult" [(ngModel)]="filterText" class="form-control">
                 </div>
-                <!-- 
-                    Todo
-                    Adicionar campo de DATA
-                    para selecionar um range
-                -->
+                
                 <div class="form-group datepicker" *ngIf="isDate">
                     <input type="text"
                         class="form-control"
@@ -42,7 +40,7 @@
                         [(ngModel)]="fromDate"
                         [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
                     
-                        <input type="text"
+                    <input type="text"
                         class="form-control"
                         [minDate]="minDate"
                         [maxDate]="maxDate"

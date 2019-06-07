@@ -22,6 +22,7 @@ import { NavigationTriggerComponent } from './layout/header/navigation-trigger/n
 import { LogsComponent } from './pages/logs/logs.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LogViewModalComponent } from './pages/logs/log-view-modal/log-view-modal.component';
+import { LoaderComponent } from './layout/loader/loader.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -35,7 +36,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NavigationTriggerComponent,
     LogsComponent,
     DashboardComponent,
-    LogViewModalComponent
+    LogViewModalComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    margin-bottom: 16px;
 
     .datepicker {
         display: flex;
@@ -46,6 +47,12 @@
 
         @media screen and (min-width: 768px) {
             width: 15%;
+        }
+
+        .zmdi {
+            font-size: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
         }
     }
 }
