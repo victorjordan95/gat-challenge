@@ -78,7 +78,10 @@ export class LogsComponent implements OnInit {
             return;
         }
         this.originalLogs.forEach((log: Issue) => {
-            if (log[this.selectedFilter].toLowerCase().includes(this.filterText.toLowerCase())) {
+            if ( log[this.selectedFilter]
+                    .toString()
+                    .toLowerCase()
+                    .includes(this.filterText.toString().toLowerCase())) {
                 this.logs = [...this.logs, log];
             }
         });

@@ -22,8 +22,13 @@
                     >
                 </ng-select>
                 <div class="form-group data-table__filter">
-                    <input autocomplete="false" placeholder="Filter across all columns" [(ngModel)]="filterText" class="form-control">
+                    <input autocomplete="false" placeholder="Type your consult" [(ngModel)]="filterText" class="form-control">
                 </div>
+                <!-- 
+                    Todo
+                    Adicionar campo de DATA
+                    para selecionar um range
+                -->
                 <button class="btn btn-default btn-search-filter" (click)="searchFilter()">
                     <i class="zmdi zmdi-search"></i>
                     Search
