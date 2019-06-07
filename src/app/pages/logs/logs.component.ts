@@ -27,7 +27,7 @@ export class LogsComponent implements OnInit {
     public reverse = false;
     public currentPage = 1;
     public filterText = '';
-    public selectedFilter: string;
+    public selectedColumnFilter: string;
 
     public fromDate: Date;
     public toDate: Date;
@@ -93,7 +93,7 @@ export class LogsComponent implements OnInit {
      */
     private searchForDateFields(): void {
         this.originalLogs.forEach((log: Issue) => {
-            let compareDate = log[this.selectedFilter].split('-')[0];
+            let compareDate = log[this.selectedColumnFilter].split('-')[0];
             compareDate = compareDate.split('/');
             compareDate = new Date(compareDate[2], (parseInt(compareDate[1], 10) - 1), (parseInt(compareDate[0], 10) + 1));
             if (dateFns.isWithinRange(compareDate, this.fromDate, this.toDate)) {
@@ -107,7 +107,7 @@ export class LogsComponent implements OnInit {
      */
     private searchForTextFields(): void {
         this.originalLogs.forEach((log: Issue) => {
-            if (log[this.selectedFilter]
+            if (log[this.selectedColumnFilter]
                 .toString()
                 .toLowerCase()
                 .includes(this.filterText.toString().toLowerCase())) {
@@ -130,7 +130,7 @@ export class LogsComponent implements OnInit {
      * is a date type or text
      * @param column The selected column
      */
-    onChangeColumn(column: {label: string, id: string}) {
+    public onChangeColumn(column: {label: string, id: string}): void {
         this.resetLogs();
         if (column.id === 'ChangedDate' || column.id === 'LastSeenDate' || column.id === 'DueDate') {
             this.isDate = true;

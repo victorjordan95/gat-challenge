@@ -14,7 +14,7 @@
                 <span class="data-table-label">Filter</span>
                 <ng-select 
                     [items]="table_headers"
-                    [(ngModel)]="selectedFilter"
+                    [(ngModel)]="selectedColumnFilter"
                     (clear)="resetLogs()"
                     (change)="onChangeColumn($event)"
                     bindLabel="label"
@@ -52,7 +52,9 @@
                         [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
                 </div>
 
-                <button class="btn btn-default btn-search-filter" (click)="searchFilter()">
+                <button 
+                    class="btn btn-default btn-search-filter" 
+                    (click)="searchFilter()">
                     <i class="zmdi zmdi-search"></i>
                     Search
                 </button>
