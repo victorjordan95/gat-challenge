@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import * as dateFns from 'date-fns';
+
+import { ApiService } from 'src/app/shared/services/api.service';
+
 import { LogViewModalComponent } from './log-view-modal/log-view-modal.component';
 import Issue from '../../shared/types/Issue';
-import { Subscription } from 'rxjs';
-import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
     selector: 'app-logs',
@@ -25,6 +28,10 @@ export class LogsComponent implements OnInit {
     public currentPage = 1;
     public filterText = '';
     public selectedFilter: string;
+
+    public fromDate: Date;
+    public toDate: Date;
+    public isDate: boolean;
 
     public table_headers = [
         { 'label': 'ID', 'id': 'ID' },
@@ -67,21 +74,43 @@ export class LogsComponent implements OnInit {
     }
 
     /**
-     * Search in the log array the
-     * input value. If it's empty,
-     * returns all logs.
+     * Defines which type of search will make
+     * If it's empty, returns all logs.
      */
     public searchFilter(): void {
         this.logs = [];
-        if (this.filterText === '') {
+        if (this.filterText === '' && !this.isDate) {
             this.resetLogs();
             return;
         }
+        this.isDate ? this.searchForDateFields() : this.searchForTextFields();
+    }
+
+    /**
+     * Search for Date fields.
+     * Parse the string to a valid
+     * date format.
+     */
+    private searchForDateFields(): void {
         this.originalLogs.forEach((log: Issue) => {
-            if ( log[this.selectedFilter]
-                    .toString()
-                    .toLowerCase()
-                    .includes(this.filterText.toString().toLowerCase())) {
+            let compareDate = log[this.selectedFilter].split('-')[0];
+            compareDate = compareDate.split('/');
+            compareDate = new Date(compareDate[2], (parseInt(compareDate[1], 10) - 1), (parseInt(compareDate[0], 10) + 1));
+            if (dateFns.isWithinRange(compareDate, this.fromDate, this.toDate)) {
+                this.logs = [...this.logs, log];
+            }
+        });
+    }
+
+    /**
+     * Search for text fields
+     */
+    private searchForTextFields(): void {
+        this.originalLogs.forEach((log: Issue) => {
+            if (log[this.selectedFilter]
+                .toString()
+                .toLowerCase()
+                .includes(this.filterText.toString().toLowerCase())) {
                 this.logs = [...this.logs, log];
             }
         });
@@ -89,11 +118,25 @@ export class LogsComponent implements OnInit {
 
     /**
      * Clean any filter and
-     * return to the original state.
+     * return to the original state
      */
     public resetLogs(): void {
         this.logs = [];
         this.logs = [...this.originalLogs];
+    }
+
+    /**
+     * Check if the selected column
+     * is a date type or text
+     * @param column The selected column
+     */
+    onChangeColumn(column: {label: string, id: string}) {
+        this.resetLogs();
+        if (column.id === 'ChangedDate' || column.id === 'LastSeenDate' || column.id === 'DueDate') {
+            this.isDate = true;
+        } else {
+            this.isDate = false;
+        }
     }
 
     /**

@@ -15,13 +15,14 @@
                     [items]="table_headers"
                     [(ngModel)]="selectedFilter"
                     (clear)="resetLogs()"
+                    (change)="onChangeColumn($event)"
                     bindLabel="label"
                     bindValue="id"
                     class="search_headers"
                     placeholder="Filter by a column"
                     >
                 </ng-select>
-                <div class="form-group data-table__filter">
+                <div class="form-group data-table__filter" *ngIf="!isDate">
                     <input autocomplete="false" placeholder="Type your consult" [(ngModel)]="filterText" class="form-control">
                 </div>
                 <!-- 
@@ -29,6 +30,30 @@
                     Adicionar campo de DATA
                     para selecionar um range
                 -->
+                <div class="form-group datepicker" *ngIf="isDate">
+                    <input type="text"
+                        class="form-control"
+                        [minDate]="minDate"
+                        [maxDate]="maxDate"
+                        #dp="bsDatepicker"
+                        placeholder="Date from"
+                        bsDatepicker 
+                        [(bsValue)]="fromDate"
+                        [(ngModel)]="fromDate"
+                        [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+                    
+                        <input type="text"
+                        class="form-control"
+                        [minDate]="minDate"
+                        [maxDate]="maxDate"
+                        placeholder="Date from"
+                        #dp="bsDatepicker"
+                        bsDatepicker 
+                        [(bsValue)]="toDate"
+                        [(ngModel)]="toDate"
+                        [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+                </div>
+
                 <button class="btn btn-default btn-search-filter" (click)="searchFilter()">
                     <i class="zmdi zmdi-search"></i>
                     Search

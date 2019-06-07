@@ -4,6 +4,15 @@
     flex-flow: row wrap;
     justify-content: flex-start;
 
+    .datepicker {
+        display: flex;
+        flex-flow: row nowrap;
+
+        label {
+            width: 100%;
+        }
+    }
+
     .data-table-label {
         width: 100%;
     }
@@ -26,14 +35,6 @@
             width: 50%;
         }
 
-        >input {
-            border-radius: 0;
-            border: 1px solid #cccccc;
-            height: 36px;
-            left: -1px;
-            position: relative;
-            top: 5px;
-        }
     }
 
     .btn-search-filter {
@@ -52,7 +53,16 @@
 .ng-select .ng-select-container {
     background: #424242;
     border-radius: 0;
-    color: white;
+    color: #fff;
+    position: relative;
+    top: 5px;
+}
+
+input {
+    border-radius: 0;
+    border: 1px solid #cccccc;
+    height: 36px;
+    left: -1px;
     position: relative;
     top: 5px;
 }
